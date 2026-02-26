@@ -1,66 +1,63 @@
 @if (isLoading()) {
-  <div class="product-container">
+<div class="product-container">
     <h2>Products</h2>
     <div class="filters">
-      <div class="skeleton skeleton-select"></div>
-      <div class="skeleton skeleton-select"></div>
+        <div class="skeleton skeleton-select"></div>
+        <div class="skeleton skeleton-select"></div>
     </div>
     <div class="product-grid">
-      @for (item of [1,2,3,4,5,6,7,8]; track item) {
+        @for (item of [1,2,3,4,5,6,7,8]; track item) {
         <div class="skeleton-card">
-          <div class="skeleton skeleton-image"></div>
-          <div class="skeleton-info">
-            <div class="skeleton skeleton-text"></div>
-            <div class="skeleton skeleton-text skeleton-text-sm"></div>
-            <div class="skeleton-footer">
-              <div class="skeleton skeleton-text skeleton-text-md"></div>
-              <div class="skeleton skeleton-button"></div>
+            <div class="skeleton skeleton-image"></div>
+            <div class="skeleton-info">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                <div class="skeleton-footer">
+                    <div class="skeleton skeleton-text skeleton-text-md"></div>
+                    <div class="skeleton skeleton-button"></div>
+                </div>
             </div>
-          </div>
         </div>
-      }
+        }
     </div>
-  </div>
+</div>
 } @else {
-  <div class="product-container">
-      <h2>Products</h2>
-  
-      <div class="filters">
-          <select [ngModel]="filterCategory()" (ngModelChange)="filterCategory.set($event)">
-              <option value="">All Categories</option>
-              @for (category of categories(); track category) {
-              <option [value]="category">{{ category }}</option>
-              }
-          </select>
-  
-          <select [ngModel]="sortOrder()" (ngModelChange)="sortOrder.set($event)">
-              <option value="">Sort by Price</option>
-              <option value="asc">Price: Low to High</option>
-              <option value="desc">Price: High to Low</option>
-          </select>
-      </div>
-  
-      <div class="product-grid">
-          @for (product of filteredProducts(); track product.id) {
-           <a [routerLink]="['/products/', product.id]"  class="product-card-link">
-              <div class="product-card">
-                  <img [src]="product.image" [alt]="product.title" class="product-image">
-                  <div class="product-info">
-                      <h3 class="product-title" [title]="product.title">{{ product.title }}</h3>
-                      <p class="product-category">{{ product.category }}</p>
-                      <div class="product-footer">
-                          <span class="product-price">${{ product.price }}</span>
-                          <button class="add-btn" (click)="$event.preventDefault(); $event.stopPropagation(); addToCart(product)">Add</button>
-                      </div>
-                  </div>
-              </div>
-          </a>
-          }
-  
-      </div>
-  </div>
-}
+<div class="product-container">
+    <h2>Products</h2>
+
+    <div class="filters">
+        <select [ngModel]="filterCategory()" (ngModelChange)="filterCategory.set($event)">
+            <option value="">All Categories</option>
+            @for (category of categories(); track category) {
+            <option [value]="category">{{ category }}</option>
+            }
+        </select>
+
+        <select [ngModel]="sortOrder()" (ngModelChange)="sortOrder.set($event)">
+            <option value="">Sort by Price</option>
+            <option value="asc">Price: Low to High</option>
+            <option value="desc">Price: High to Low</option>
+        </select>
+    </div>
+
+    <div class="product-grid">
+        @for (product of filteredProducts(); track product.id) {
+        <a [routerLink]="['/products/', product.id]" class="product-card-link">
+            <div class="product-card">
+                <img [src]="product.image" [alt]="product.title" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title" [title]="product.title">{{ product.title }}</h3>
+                    <p class="product-category">{{ product.category }}</p>
+                    <div class="product-footer">
+                        <span class="product-price">${{ product.price }}</span>
+                        <button class="add-btn"
+                            (click)="$event.preventDefault(); $event.stopPropagation(); addToCart(product)">Add</button>
+                    </div>
+                </div>
+            </div>
+        </a>
         }
 
     </div>
 </div>
+}
