@@ -6,6 +6,8 @@ import { AppComponent } from './app'
 import { TodoComponent } from './todo/todo';
 import { AddTodoComponent } from './add-todo-component/add-todo-component'
 import { ProductComponent } from './product-component/product-component';
+import { ProductDetailComponent } from './product-detail.component';
+
 
 @NgModule({
     declarations: [],
@@ -14,6 +16,7 @@ import { ProductComponent } from './product-component/product-component';
         TodoComponent,
         AddTodoComponent,
         ProductComponent,
+        ProductDetailComponent,
         AppComponent,
         FormsModule // <--- 2. Add to imports array
     ],

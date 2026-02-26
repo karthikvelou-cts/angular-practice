@@ -1,0 +1,24 @@
+@if (product(); as product) {
+  <div class="product-detail-container">
+    <div class="breadcrumb">
+      <a routerLink="/products">Products</a> / <span>{{ product.category }}</span>
+    </div>
+    <div class="product-detail-content">
+      <div class="product-image-container">
+        <img [src]="product.image" [alt]="product.title" class="product-detail-image">
+      </div>
+      <div class="product-detail-info">
+        <h1 class="product-title">{{ product.title }}</h1>
+        <div class="product-rating">
+          <span>{{ product.rating.rate }} ★</span>
+          <span>({{ product.rating.count }} reviews)</span>
+        </div>
+        <p class="product-price">${{ product.price }}</p>
+        <p class="product-description">{{ product.description }}</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+} @else {
+  <p>Loading product...</p>
+}

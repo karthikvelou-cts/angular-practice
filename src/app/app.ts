@@ -10,6 +10,6 @@ import { AuthService } from './services/auth.service';
   styleUrl: './app.scss'
 })
 export class AppComponent {
-  protected readonly title = signal('Angular Technology');
+  protected readonly title = signal('Angular Techie');
   protected authService = inject(AuthService);
 }
