@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Product, ProductsService } from '../services/products-service';
+import { forkJoin } from 'rxjs';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -15,6 +16,7 @@ import { CartService } from '../services/cart.service';
 export class ProductComponent {
   private productsService = inject(ProductsService);
   private cartService = inject(CartService);
+  isLoading = signal(true);
   products = signal<Product[]>([]);
   categories = signal<string[]>([]);
   sortOrder = signal<string>('');
@@ -38,11 +40,13 @@ export class ProductComponent {
   });
 
   constructor() {
-    this.productsService.getProducts().subscribe((res) => {
-      this.products.set(res);
-    });
-    this.productsService.getCategories().subscribe((res) => {
-      this.categories.set(res);
+    forkJoin([
+      this.productsService.getProducts(),
+      this.productsService.getCategories()
+    ]).subscribe(([products, categories]) => {
+      this.products.set(products);
+      this.categories.set(categories);
+      this.isLoading.set(false);
     });
   }
 

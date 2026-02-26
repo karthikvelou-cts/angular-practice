@@ -108,3 +108,58 @@
     transform: translateY(-2px);
   }
 }
+
+// Skeleton Styles
+.skeleton {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { background-color: #e0e0e0; }
+  50% { background-color: #f0f0f0; }
+  100% { background-color: #e0e0e0; }
+}
+
+.skeleton-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.skeleton-detail-image {
+  width: 300px;
+  height: 400px;
+}
+
+.skeleton-title {
+  height: 2rem;
+  width: 80%;
+  margin-bottom: 0.5rem;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}
+
+.skeleton-price {
+  height: 2.5rem;
+  width: 150px;
+  margin-bottom: 1.5rem;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}
+
+.skeleton-add-to-cart-btn {
+  height: 50px;
+  width: 150px;
+  align-self: flex-start;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}
+
+.skeleton-text {
+  height: 1rem;
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}

@@ -1,5 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, signal, OnInit } from '@angular/core';
+import { CommonModule, NumberSymbol } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../services/cart.service';
@@ -12,9 +12,15 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
   cartService = inject(CartService);
   authService = inject(AuthService);
+  isLoading = signal(true);
+
+  ngOnInit(): void {
+    // Simulate loading to show skeleton, as cart data is synchronous
+    setTimeout(() => this.isLoading.set(false), 300);
+  }
 
   showCheckoutModal = signal(false);
   showOrderSuccess = signal(false);
