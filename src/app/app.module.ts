@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms'; // <--- 1. Import this
 import { AppComponent } from './app'
 import { TodoComponent } from './todo/todo';
 import { AddTodoComponent } from './add-todo-component/add-todo-component'
+import { ProductComponent } from './product-component/product-component';
 
 @NgModule({
     declarations: [],
@@ -12,6 +13,7 @@ import { AddTodoComponent } from './add-todo-component/add-todo-component'
         BrowserModule,
         TodoComponent,
         AddTodoComponent,
+        ProductComponent,
         AppComponent,
         FormsModule // <--- 2. Add to imports array
     ],
