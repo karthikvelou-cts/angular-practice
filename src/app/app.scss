@@ -13,11 +13,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .brand {
     font-size: 1.5rem;
     font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+
+  .brand:visited {
+    color: white;
+  }
+  
+  .brand:hover {
+    text-decoration: none;
+    color: white;
   }
 
   .nav-links {
@@ -34,8 +45,27 @@
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: rgba(255,255,255,0.1);
+      background-color: rgba(255, 255, 255, 0.1);
     }
+  }
+
+  .cart-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff5252;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    line-height: 1;
+    transform: translate(50%, -50%);
   }
 }
 

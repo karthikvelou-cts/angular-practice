@@ -2,7 +2,8 @@ import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { ProductsService, Product } from '../services/products-service';
+import { Product, ProductsService } from '../services/products-service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -13,6 +14,7 @@ import { ProductsService, Product } from '../services/products-service';
 })
 export class ProductComponent {
   private productsService = inject(ProductsService);
+  private cartService = inject(CartService);
   products = signal<Product[]>([]);
   categories = signal<string[]>([]);
   sortOrder = signal<string>('');
@@ -42,5 +44,9 @@ export class ProductComponent {
     this.productsService.getCategories().subscribe((res) => {
       this.categories.set(res);
     });
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,5 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   protected readonly title = signal('Angular Techie');
   protected authService = inject(AuthService);
+  protected cartService = inject(CartService);
 }
