@@ -1,0 +1,4 @@
+<div class="input-group">
+  <input [(ngModel)]="Todo" [placeholder]="placeholder" class="todo-input" (keydown.enter)="addTodo()">
+  <button (click)="addTodo()" class="add-btn">Add</button>
+</div>

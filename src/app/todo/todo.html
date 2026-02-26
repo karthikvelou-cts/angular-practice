@@ -1,0 +1,16 @@
+<div class="todo-container">
+  <h1 class="page-title">{{ title }}</h1>
+
+  <div class="add-todo-section">
+    <app-add-todo-component (todoAdded)="addTodo($event)" />
+  </div>
+
+  <ul class="todo-list">
+    @for (todo of todos; track todo; let i = $index) {
+      <li class="todo-item">
+        <span class="todo-text">{{todo.title}}</span>
+        <button class="delete-btn" (click)="deleteTodo(i)">X</button>
+      </li>
+    }
+  </ul>
+</div>
