@@ -53,6 +53,31 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "admin": {
+              "browser": "src/main-admin.ts",
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            },
+            "admin-production": {
+              "browser": "src/main-admin.ts",
+              "optimization": true,
+              "extractLicenses": true,
+              "sourceMap": false,
+              "outputHashing": "all",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -65,6 +90,9 @@
             },
             "development": {
               "buildTarget": "angular-basics:build:development"
+            },
+            "admin": {
+              "buildTarget": "angular-basics:build:admin"
             }
           },
           "defaultConfiguration": "development"

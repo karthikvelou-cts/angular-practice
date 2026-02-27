@@ -6,17 +6,22 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private router = inject(Router);
-  currentUser = signal<{username: string} | null>(null);
+  currentUser = signal<{username: string, role: 'admin' | 'customer'} | null>(null);
 
   login(username: string) {
     // Mock login logic
-    this.currentUser.set({ username });
+    this.currentUser.set({ username, role: 'customer' });
+    this.router.navigate(['/']);
+  }
+
+  adminLogin(username: string) {
+    this.currentUser.set({ username, role: 'admin' });
     this.router.navigate(['/']);
   }
 
   register(username: string) {
     // Mock register logic
-    this.currentUser.set({ username });
+    this.currentUser.set({ username, role: 'customer' });
     this.router.navigate(['/']);
   }
 
