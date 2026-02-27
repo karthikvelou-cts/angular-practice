@@ -12,6 +12,7 @@ import { CartService } from './services/cart.service';
 })
 export class AppComponent {
   protected readonly title = signal('TechieKart');
+  year = new Date().getFullYear();
   protected authService = inject(AuthService);
   protected cartService = inject(CartService);
 }

@@ -1,6 +1,8 @@
 <nav class="navbar">
   <div class="brand">
-    <a class="brand" routerLink="/">{{ title() }}</a>
+    <a class="brand" routerLink="/">
+      <img src="logo.png" alt="TechieKart Logo" style="height: 60px; vertical-align: middle;">
+    </a>
   </div>
   <div class="nav-links">
     <!-- <a routerLink="/" class="nav-link">Todos</a> -->
@@ -24,3 +26,6 @@
 <main class="container">
   <router-outlet />
 </main>
+<footer class="footer text-center">
+  <p>&copy; {{ year }} TechieKart. All rights reserved.</p>
+</footer>
