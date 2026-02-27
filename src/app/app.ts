@@ -11,7 +11,7 @@ import { CartService } from './services/cart.service';
   styleUrl: './app.scss'
 })
 export class AppComponent {
-  protected readonly title = signal('Angular Techie');
+  protected readonly title = signal('TechieKart');
   protected authService = inject(AuthService);
   protected cartService = inject(CartService);
 }
